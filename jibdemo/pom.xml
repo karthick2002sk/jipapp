@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.5</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>jibdemo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>jibdemo</name>
+	<description>Demo project for Spring Boot</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+	    <!-- Profile for the Spring Boot Application Image -->
+	    <profile>
+	        <id>jib-app</id>
+	        <build>
+	            <plugins>
+	                <!-- Maven Compiler Plugin for Java 21 -->
+	                <plugin>
+	                    <groupId>org.apache.maven.plugins</groupId>
+	                    <artifactId>maven-compiler-plugin</artifactId>
+	                    <version>3.8.1</version>
+	                    <configuration>
+	                        <source>21</source>
+	                        <target>21</target>
+	                    </configuration>
+	                </plugin>
+
+	                <!-- Jib Plugin for Spring Boot App Containerization -->
+	                <plugin>
+	                    <groupId>com.google.cloud.tools</groupId>
+	                    <artifactId>jib-maven-plugin</artifactId>
+	                    <version>3.3.1</version>
+	                    <configuration>
+	                        <from>
+	                            <image>eclipse-temurin:21-jdk</image> <!-- Java 21 base image -->
+	                        </from>
+	                        <to>
+	                            <image>registry.hub.docker.com/karthick797/jibdemo</image> <!-- Docker Hub repository for the Spring Boot app -->
+	                        </to>
+	                    </configuration>
+	                </plugin>
+	            </plugins>
+	        </build>
+	    </profile>
+	</profiles>
+</project>
