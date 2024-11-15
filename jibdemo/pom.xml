@@ -70,7 +70,7 @@
 	                            <image>eclipse-temurin:21-jdk</image> <!-- Java 21 base image -->
 	                        </from>
 	                        <to>
-	                            <image>registry.hub.docker.com/karthiksaravana/jibdemo</image> <!-- Docker Hub repository for the Spring Boot app -->
+	                            <image>registry.hub.docker.com/karthick797/jibdemo</image> <!-- Docker Hub repository for the Spring Boot app -->
 	                        </to>
 	                    </configuration>
 	                </plugin>
